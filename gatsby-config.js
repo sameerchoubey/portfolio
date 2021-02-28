@@ -7,7 +7,7 @@ module.exports = {
     // Main Site Title
     title: `Sameer Choubey | Software Developer`,
     // Description that goes under your name in main bio
-    description: `I'm a final year undergraduate student from NIT Sikkim. I'm passionate about building products.`,
+    description: `Software Developer Intern @ OnJuno`,
     // Optional: Twitter account handle
     author: `@SameerChoubey98`,
     // Optional: Github account URL
@@ -15,7 +15,7 @@ module.exports = {
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/sameerchoubey/`,
     // Content of the About Me section
-    about: `I'm a final year undergraduate student from NIT Sikkim. I'm passionate about building products.`,
+    about: `Jack of all trades, master of none.`,
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     // projects: [
     //   {

@@ -1,16 +1,12 @@
 ---
-title: My Third Blog Post
-date: '2020-10-10T12:00:00.00Z'
-description: 'Dolor inventore quasi necessitatibus odio eaque doloribus'
+title: welcome to my personal blog
+date: '2021-01-10T12:00:00.00Z'
+description: 'Hello everyone, my name is Sameer Choubey and I'm a final year undergraduate student from NIT Sikkim.'
 ---
 
-## Lorem ipsum dolor sit amet consectetur adipisicing elit
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.
+Hello everyone, my name is Sameer Choubey and I'm a final year undergraduate student from NIT Sikkim. I love solving real-world problems with the help of technology.
 
 ![Mountain](./mountain.jpg)
-
-Aliquam aliquid rem facere dolorum consectetur consequatur distinctio [mollitia id modi repellendus](https://github.com/RyanFitzgerald/devfolio) vero quae dolorem commodi soluta voluptates iusto nobis est dolore provident, porro veritatis placeat nemo impedit! Asperiores culpa delectus hic qui saepe, ipsum quia, exercitationem repellendus magni soluta sit suscipit laborum ducimus.
 
 ## Asperiores culpa delectus hic qui saepe
 
