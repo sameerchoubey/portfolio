@@ -3,52 +3,22 @@ title: Introduction
 date: '2021-01-10T12:00:00.00Z'
 description: 'Hello, I am Sameer and I welcome you to my space.'
 ---
+I have been thinking for a while to start a personal website where I can host my projects and share my thoughts. I was looking for more of a hybrid version where I can do both.
 
-Hello everyone, my name is Sameer Choubey and I'm a final year undergraduate student from NIT Sikkim. I love solving real-world problems with the help of technology.
+If you've just landed here, let me give a small introduction about myself.
 
-![Mountain](./mountain.jpg)
+My name is Sameer and I am currently purusing B.Tech (in ECE) from NIT Sikkim and the worst thing about this is that I am graduating this summer.
 
-## Asperiores culpa delectus hic qui saepe
+In a 4 year course, I spent only 2.5 years in college and it seems that the remaining few months will also be spent at home due to my college not opening despite the fact that the government has allowed them to do so.
 
-### Facere labore velit ad autem
+I have been watching sports for over a decade now. I live in India, and here cricket is the de-facto national sport and I have closely following the our national cricket team for the last 16 years. 
 
-Vitae veritatis quae eius quis vel soluta cumque? Facere labore velit ad autem. Nisi recusandae ducimus molestiae error ipsa quaerat, dignissimos suscipit similique itaque sunt provident quasi minus ut porro. Optio modi harum _dolore necessitatibus exercitationem_ blanditiis magni error ipsum, odit deleniti eligendi facilis, nesciunt delectus sit nostrum porro quam accusamus excepturi labore sequi maiores soluta?
+![MS Dhoni](./dhoni.jpg)
 
-### Porro veritatis placeat nemo impedit
+>It started with watching a guy with big hairs scoring a unbeaten 183 against Sri Lanka in Jaipur. That day (in 2005), I became a MS Dhoni fan. I was just 7 years old.
 
-Veritatis et praesentium totam neque earum commodi nesciunt dolor quibusdam incidunt non, ex dicta molestias omnis maiores, maxime velit perferendis tenetur aut porro nostrum, suscipit soluta necessitatibus deserunt nobis. Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.
+Though, I became a little disconnected after the world cup semi-final loss against NZ. Everyone was asking me why isn't Dhoni playing and hasn't he been dropped from the team. Deep down, I knew that it would be his last match and I reciprocated the same.
 
-> Repudiandae iusto et iure pariatur aliquid, quisquam, non sed culpa, dignissimos recusandae facilis. Debitis hic, quaerat recusandae ad id, quis nisi perspiciatis quo aliquid natus similique.
+Other than being a de-facto cricket fan, I am a huge **Manchester United** fan(a.k.a The Red Devils). **If you cut my viens, it'll bleed red (I know that was bad joke, but, it's true)**. I have been following football for about 5 years now and have been closely following United for the last 2 years.
 
-Illum esse recusandae facere ipsam fugiat est eaque ducimus facilis provident, distinctio cum aut corporis officiis quo fugit, similique temporibus inventore quidem tempora commodi saepe dicta! Numquam fugiat quibusdam aut ut, voluptatibus accusamus **repellendus quas minus consequuntur** possimus! Est eaque nesciunt, reiciendis voluptate placeat aspernatur doloremque unde cum et architecto suscipit quam facere corrupti nihil odit eum minima voluptatem nobis.
-
-## Voluptatibus accusamus repellendus quas minus
-
-Ipsum quod, ut animi mollitia ipsam repellat, dolore voluptate quibusdam quasi reiciendis necessitatibus odio ea nostrum illo explicabo? Ducimus, in repudiandae. Ratione dolore sequi in animi obcaecati incidunt reprehenderit illo repellat atque aperiam, praesentium eligendi! Sed voluptas voluptatem sunt distinctio pariatur ullam? Laudantium laboriosam.
-
-- Numquam fugiat quibusdam aut ut
-- Soluta necessitatibus deserunt nobis
-- Illum esse recusandae facere ipsam
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus.
-
-1. Numquam fugiat quibusdam aut ut
-2. Soluta necessitatibus deserunt nobis
-3. Illum esse recusandae facere ipsam
-
-Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde reprehenderit inventore sunt, consequatur omnis tempore ullam natus, porro odit aut, atque asperiores repudiandae corporis quidem esse eos provident velit perferendis magni fugit eum quisquam eligendi. Atque distinctio iure aliquam veniam inventore, soluta est, cum accusantium possimus illum quasi eveniet sed amet ipsa culpa vel in delectus laboriosam repellendus totam. Facere.
-
-## Suscipit soluta necessitatibus deserunt nobi
-
-Minus rem dicta eos exercitationem illum consequatur consectetur praesentium voluptas. Dolor inventore quasi necessitatibus odio eaque doloribus.
-
-```js
-const helloWorld = (name = 'World') => {
-  return `Hello ${name}!`;
-};
-
-helloWorld();
-helloWorld('John Doe');
-```
-
-Numquam fugiat quibusdam aut ut, voluptatibus accusamus repellendus quas minus consequuntur possimus!
+I hope to see you around :)
