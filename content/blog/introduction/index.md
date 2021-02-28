@@ -1,7 +1,7 @@
 ---
-title: welcome to my personal blog
+title: Introduction
 date: '2021-01-10T12:00:00.00Z'
-description: 'Hello everyone, my name is Sameer Choubey and I'm a final year undergraduate student from NIT Sikkim.'
+description: 'Hello, I am Sameer and I welcome you to my space.'
 ---
 
 Hello everyone, my name is Sameer Choubey and I'm a final year undergraduate student from NIT Sikkim. I love solving real-world problems with the help of technology.
