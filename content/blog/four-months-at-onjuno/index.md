@@ -3,6 +3,7 @@ title: My SDE Internship @ OnJuno
 date: '2021-04-03T12:00:00.00Z'
 description: 'I have always wanted to become a software engineer...'
 ---
+![OnJuno](./onjuno.png)
 I joined [OnJuno](https://onjuno.com/) as an SDE Intern in November'20 (shortly before the public launch of the core product) and it's been an amazing journey till now.
 
 I am a firm believer in great products, so, when I saw OnJuno's website for the first time in October, the next thing that I knew was I contacted [Varun Deshpande](https://twitter.com/thebitsian) (our CEO) for an internship via Twitter DM. He was kind enough to respond and schedule an interview for me.
