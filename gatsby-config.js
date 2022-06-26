@@ -7,7 +7,7 @@ module.exports = {
     // Main Site Title
     title: `Sameer Choubey | Software Developer`,
     // Description that goes under your name in main bio
-    description: `Software Developer Intern @ OnJuno`,
+    description: `Software Developer @ OnJuno`,
     // Optional: Twitter account handle
     author: `@SameerChoubey98`,
     // Optional: Github account URL
@@ -41,7 +41,7 @@ module.exports = {
     experience: [
       {
         name: 'OnJuno',
-        description: 'Software Developer Intern, November 2020 - Present',
+        description: 'Software Developer, November 2020 - Present',
         link: 'https://onjuno.com',
       },
       {
