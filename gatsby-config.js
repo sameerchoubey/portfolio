@@ -15,7 +15,7 @@ module.exports = {
     // Optional: LinkedIn account URL
     linkedin: `https://www.linkedin.com/in/sameerchoubey/`,
     // Content of the About Me section
-    about: `Jack of all trades, master of none.`,
+    about: `Jack of all trades.`,
     // Optional: List your projects, they must have `name` and `description`. `link` is optional.
     // projects: [
     //   {
