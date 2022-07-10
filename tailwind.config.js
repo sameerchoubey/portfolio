@@ -1,16 +1,14 @@
 module.exports = {
-  future: {
-    removeDeprecatedGapUtilities: true,
-    purgeLayersByDefault: true,
-  },
-  purge: ['./src/**/*.js', './src/**/*.jsx', './src/**/*.ts', './src/**/*.tsx'],
+  darkMode: "class",
+  content: [
+    "./components/**/*.{js,vue,ts}",
+    "./layouts/**/*.vue",
+    "./pages/**/*.vue",
+    "./plugins/**/*.{js,ts}",
+    "./nuxt.config.{js,ts}",
+  ],
   theme: {
-    extend: {
-      screens: {
-        xs: '480px',
-      },
-    },
+    extend: {},
   },
-  variants: {},
-  plugins: [],
+  plugins: [require("@tailwindcss/typography")],
 };
