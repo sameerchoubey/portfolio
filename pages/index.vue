@@ -17,7 +17,10 @@
 import siteMetaInfo from "@/data/sitemetainfo"
 export default {
 	components: {
-        // AuthorCard: () => import ('@/components/author-card/index.vue')
+        AuthorCard: () => import ('@/components/author-card/index.vue'),
+		AuthorIntro: () => import('@/components/author-intro/index.vue'),
+		Expertise: () => import('@/components/expertise/index.vue'),
+		Timeline: () => import('@/components/timeline/index.vue'),
     },
 	data() {
 		return {

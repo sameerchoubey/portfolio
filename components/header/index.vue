@@ -25,7 +25,7 @@
 </template>
 
 <script>
-import menu from "../data/menu";
+import menu from "@/data/menu";
 
 export default {
   name: "TheHeader",
