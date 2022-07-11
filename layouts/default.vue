@@ -10,9 +10,10 @@
 
 <script>
 export default {
+
 	component: {
 		Header: () => import('@/components/header/index.vue'),
-		Footer: () => import('@/components/footer/index.vue')
+		Footer: () => import('@/components/footer/index.vue'),
 	},
-};
+}
 </script>

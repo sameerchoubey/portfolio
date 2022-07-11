@@ -5,9 +5,9 @@
 			src="~/assets/author.png"
 			loading="lazy"
 			alt="me"
-			class="shadow-xl md:h-60 md:w-60 h-40 w-40 rounded-full"
+			class="md:mx-auto shadow-xl md:h-60 md:w-60 h-20 w-20 rounded-full"
 		/>
-		<div class="mb-2 mx-7 mt-4 justify-center items-center">
+		<div class="mb-2 ml-2 md:mx-7 mt-4 justify-center items-center">
 			<h1
 				class="md:text-3xl text-2xl text-gray-800 font-bold dark:text-blue-100"
 			>
