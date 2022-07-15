@@ -7,8 +7,8 @@
       {{ article.title }}
     </h1>
     <div class="flex items-center font-medium mt-6 sm:mx-3 justify-center">
-      <nuxt-img
-        :src="siteMetadata.author_image"
+      <img
+			  src="~/assets/author.png"
         loading="lazy"
         alt=""
         class="mr-3 w-10 h-10 rounded-full bg-slate-50 dark:bg-slate-800"

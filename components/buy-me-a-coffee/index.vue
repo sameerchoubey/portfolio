@@ -1,6 +1,6 @@
 <template>
     <a
-        href="https://www.buymeacoffee.com/mdrathik"
+        href="#"
         target="_blank"
     >
         <img

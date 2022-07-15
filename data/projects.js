@@ -54,7 +54,7 @@ const projectsData = [
     description: `First version of my personal website. Nothing spectacular, just to buy domain and try things.`,
     imgSrc: "",
     href: "",
-    github: "https://github.com/mdrathik/tailwind-nuxt-blog-starter",
+    github: "#",
     tech1: "Gatsby",
     tech2: "Heroku",
     tech3: "Bootstrap",

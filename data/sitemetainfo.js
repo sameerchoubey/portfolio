@@ -18,7 +18,7 @@ const siteMetaInfo = {
 	github: "https://github.com/sameerchoubey",
 	githubUser: "sameerchoubey",
 	twitter: "https://github.com/SameerChoubey98",
-	twitter_user: "MDRT83716131",
+	twitter_user: "SameerChoubey98",
 	stackoverflow: "#",
 	youtube: "#",
 	linkedin: "#",

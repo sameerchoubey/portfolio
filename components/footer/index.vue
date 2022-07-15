@@ -53,7 +53,7 @@
 				<a
 					target="_blank"
 					rel="noopener noreferrer"
-					href="https://github.com/mdrathik/tailwind-nuxtjs-starter-blog"
+					href="#"
 				></a>
 			</div>
 			<BuyMeACoffee></BuyMeACoffee>
