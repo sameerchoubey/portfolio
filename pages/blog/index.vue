@@ -1,15 +1,20 @@
 <template>
 	<div>
 		<div class="pt-16 pb-9 sm:pb-16 space-y-16 mx-auto max-w-7xl">
-			<BlogItem
-				v-for="article in articles.slice().reverse()"
-				:key="article.title"
-				:title="article.title"
-				:description="article.description"
-				:date="article.date"
-				:slug="article.slug"
+			<div
+				v-for="(article, key) in articles.slice().reverse()"
+				:key="key"
 			>
-			</BlogItem>
+				<BlogItem
+					v-if="!article.draft"
+					:key="article.title"
+					:title="article.title"
+					:description="article.description"
+					:date="article.date"
+					:slug="article.slug"
+				>
+				</BlogItem>
+			</div>
 		</div>
 	</div>
 </template>

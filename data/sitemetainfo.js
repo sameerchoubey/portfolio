@@ -17,7 +17,7 @@ const siteMetaInfo = {
 	email: "sameer.choubey98@gmail.com",
 	github: "https://github.com/sameerchoubey",
 	githubUser: "sameerchoubey",
-	twitter: "https://github.com/SameerChoubey98",
+	twitter: "https://twitter.com/SameerChoubey98",
 	twitter_user: "SameerChoubey98",
 	stackoverflow: "#",
 	youtube: "#",
