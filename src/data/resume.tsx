@@ -142,6 +142,6 @@ export const DATA = {
 			location: "Sikkim, India"
 		}
 	],
-	projects: undefined as string[] | undefined, // Mark as optional
-	hackathons: undefined as string[] | undefined, // Mark as optional
+	// projects: undefined as string[] | undefined, // Mark as optional
+	// hackathons: undefined as string[] | undefined, // Mark as optional
 } as const;
