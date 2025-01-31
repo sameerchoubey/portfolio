@@ -107,6 +107,7 @@ export const DATA = {
 		},
 		{
 			company: "Moodcafe",
+			href: "#",
 			badges: [],
 			location: "Ahmedabad, India",
 			title: "Frontend Developer Intern",
@@ -140,5 +141,7 @@ export const DATA = {
 			end: "May 2021",
 			location: "Sikkim, India"
 		}
-	]
+	],
+	projects: undefined as string[] | undefined, // Mark as optional
+	hackathons: undefined as string[] | undefined, // Mark as optional
 } as const;
