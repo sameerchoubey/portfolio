@@ -234,7 +234,7 @@ export default function Page() {
 									X (Twitter)
 								</Link>
 
-								and I'll respond when I can.
+								and I shall respond when I can.
 
 								<br />
 
