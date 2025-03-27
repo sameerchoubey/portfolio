@@ -8,7 +8,7 @@ export const DATA = {
 	location: "Berlin, Germany",
 	locationLink: "https://www.google.com/maps/place/berlin",
 	description: "I love building cool and experimental things.",
-	summary: "I am a software engineer with experience at **high-growth startups in India**, where I developed scalable solutions and thrived in **fast-paced, high-growth, and innovative environments**. I recently completed my **Masters in Computer Science from Berlin**, and I am now seeking **full-time roles in Europe** to contribute to impactful projects and grow within the tech industry. I also hold an **engineering degree from NIT Sikkim, India**, which laid the foundation for my technical expertise and problem-solving skills.",
+	summary: "I am a software engineer with experience at **high-growth startups in India**, where I developed scalable solutions and thrived in **fast-paced and high-growth** environments. I recently completed my **MSc. in Software Engineering from Berlin**, and I am now seeking **full-time roles in Europe** to contribute to impactful projects and grow within the tech industry. I also hold an **engineering degree from NIT Sikkim, India**, which laid the foundation for my technical expertise and problem-solving skills.",
 	avatarUrl: "/me.png",
 	skills: [
 		"Vue",
@@ -59,6 +59,7 @@ export const DATA = {
 	},
 	work: [
 		{
+			id: "juno-1",
 			company: "Juno Finance",
 			href: "https://juno.finance",
 			badges: [],
@@ -91,6 +92,7 @@ export const DATA = {
 			]
 		},
 		{
+			id: "juno-2",
 			company: "Juno Finance",
 			href: "https://juno.finance",
 			badges: [],
@@ -106,6 +108,7 @@ export const DATA = {
 			]
 		},
 		{
+			id: "moodcafe",
 			company: "Moodcafe",
 			href: "#",
 			badges: [],
@@ -144,4 +147,31 @@ export const DATA = {
 	],
 	// projects: undefined as string[] | undefined, // Mark as optional
 	// hackathons: undefined as string[] | undefined, // Mark as optional
+
+	projects: [
+		{
+			title: "Schreibe",
+			href: "https://schreibe.vercel.app",
+			dates: "March 2025",
+			active: true,
+			description: "Schreibe is a lightweight writing environment designed for focus. With intuitive keyboard shortcuts and markdown formatting, it helps you draft notes, essays, or stories without clutter.",
+			technologies: [
+				"Next.js",
+				"Javascript",
+				"PostgreSQL",
+				"Prisma",
+				"TailwindCSS",
+				"Shadcn UI"
+			],
+			links: [
+				{
+					type: "Website",
+					href: "https://schreibe.vercel.app",
+					icon: <Icons.globe className="size-3" />,
+				},
+			],
+			image: "/schreibe.png",
+			video: undefined
+		},
+	],
 } as const;
