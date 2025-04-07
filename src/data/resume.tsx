@@ -151,7 +151,7 @@ export const DATA = {
 	projects: [
 		{
 			title: "Schreibe",
-			href: "https://schreibe.vercel.app",
+			href: "https://schreibe.choubey.eu",
 			dates: "March 2025",
 			active: true,
 			description: "Schreibe is a lightweight writing environment designed for focus. With intuitive keyboard shortcuts and markdown formatting, it helps you draft notes, essays, or stories without clutter.",
