@@ -8,7 +8,7 @@ export const DATA = {
 	location: "Berlin, Germany",
 	locationLink: "https://www.google.com/maps/place/berlin",
 	description: "I love building cool and experimental things.",
-	summary: "I am a software engineer with experience at **high-growth startups in India**, where I developed scalable solutions and thrived in **fast-paced and high-growth** environments. I recently completed my **MSc. in Software Engineering from Berlin**, and I am now seeking **full-time roles in Europe** to contribute to impactful projects and grow within the tech industry. I also hold an **engineering degree from NIT Sikkim, India**, which laid the foundation for my technical expertise and problem-solving skills.",
+	summary: "I am a software engineer with experience at **high-growth startups**, where I developed scalable solutions and thrived in **fast-paced and high-growth** environments. I recently completed my **MSc. in Software Engineering from Berlin**, and I am currently working as Software Engineer at Emergent Labs. I also hold an **engineering degree from NIT Sikkim, India**, which laid the foundation for my technical expertise and problem-solving skills.",
 	avatarUrl: "/me.png",
 	skills: [
 		"Vue",
