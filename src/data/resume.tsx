@@ -59,6 +59,23 @@ export const DATA = {
 	},
 	work: [
 		{
+			id: "emergent-1",
+			company: "Emergent Labs",
+			href: "https://app.emergent.sh/",
+			badges: [],
+			location: "Remote",
+			title: "Software Engineer",
+			logoUrl: "/emergent.png",
+			start: "August 2025",
+			end: "Present",
+			description: [
+				"Integrated Pusher for real-time web notifications, enabling instant updates for users on the platform.",
+				"Designed and optimised the landing page using lazy loading, code splitting, and WebP image optimisation.",
+				"Integrated Google One Tap authentication with OAuth 2.0 flows through Supabase Auth.",
+				"Developed collaborative teams feature with real-time synchronisation and role-based access control (RBAC)."
+			]
+		},
+		{
 			id: "juno-1",
 			company: "Juno Finance",
 			href: "https://juno.finance",
@@ -79,16 +96,6 @@ export const DATA = {
 				"Contributed to the development and enhancement of buy, sell, and send crypto flows across multiple iterations.",
 				"Implemented lazy hydrating techniques that resulted in a 40% reduction in the loading time.",
 				"Developed and implemented two-factor authentication to enhance user security.",
-				"Migrated from the Google Sign-In JS library to Google Identity, integrating Google One Tap for better UX.",
-				"Enhanced the Onfido Motion, enabling motion capture for improving security and user verification.",
-				"Developed the JCOIN Maps landing page to showcase cities where Juno Points were earned using a 3D globe.",
-				"Added functionality for users to purchase cryptocurrency with credit cards by integrating TabaPay.",
-				"Implemented NFT Auctions, allowing users to bid for NFTs using self-custodial wallets like Metamask or Zengo.",
-				"Led the development and optimization of the Account & Card Activation Flow feature.",
-				"Developed the Juno Store transactions section to handle various transactions in light & dark modes for redemptions.",
-				"Contributed to the development and enhancement of buy, sell, and send crypto flows across multiple iterations.",
-				"Implemented lazy hydrating techniques that resulted in a 40% reduction in the loading time.",
-				"Developed and implemented two-factor authentication to enhance user security."
 			]
 		},
 		{
@@ -166,7 +173,7 @@ export const DATA = {
 			links: [
 				{
 					type: "Website",
-					href: "https://schreibe.vercel.app",
+					href: "https://schreibe.choubey.eu",
 					icon: <Icons.globe className="size-3" />,
 				},
 			],
