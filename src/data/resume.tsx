@@ -177,6 +177,29 @@ export const DATA = {
 
 	projects: [
 		{
+			title: "Wealth Flow",
+			href: "https://wealth.choubey.eu/",
+			dates: "November 2025",
+			active: true,
+			description: "A simple wealth tracker that captures periodic snapshots of your net worth and visualizes how it changes over time with clear, intuitive graphs.",
+			technologies: [
+				"Next.js",
+				"Javascript",
+				"MongoDB",
+				"Python",
+				"TailwindCSS",
+			],
+			links: [
+				{
+					type: "Website",
+					href: "https://wealth.choubey.eu",
+					icon: <Icons.globe className="size-3" />,
+				},
+			],
+			image: "/wealth.png",
+			video: undefined
+		},
+		{
 			title: "Schreibe",
 			href: "https://schreibe.choubey.eu",
 			dates: "March 2025",
