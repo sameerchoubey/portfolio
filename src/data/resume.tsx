@@ -8,7 +8,7 @@ export const DATA = {
 	location: "Berlin, Germany",
 	locationLink: "https://www.google.com/maps/place/berlin",
 	description: "I love building cool and experimental things.",
-	summary: "I am a software engineer with experience at **high-growth startups**, where I developed scalable solutions and thrived in **fast-paced and high-growth** environments. I recently completed my **MSc. in Software Engineering from Berlin**, and I am currently working as Software Engineer at Emergent Labs. I also hold an **engineering degree from NIT Sikkim, India**, which laid the foundation for my technical expertise and problem-solving skills.",
+	summary: "I am a software engineer with experience at high-growth startups, where I developed scalable solutions and thrived in fast-paced and high-growth environments. I am currently working as Software Engineer at Confido Health. I hold an B.Tech from NIT Sikkim, India and MSc. in Software Engineering from UE Potsdam, Germany which laid the foundation for my technical expertise and problem-solving skills.",
 	avatarUrl: "/me.png",
 	skills: [
 		"Vue",
@@ -59,15 +59,32 @@ export const DATA = {
 	},
 	work: [
 		{
+			id: "confido-1",
+			company: "Confido Health",
+			href: "https://confido.health/",
+			badges: [],
+			location: "Remote",
+			title: "Software Development Engineer",
+			logoUrl: "/confido.png",
+			start: "November 2025",
+			end: "Present",
+			description: [
+				"Developed and maintained the frontend for the Confido Health platform, ensuring a seamless user experience.",
+				"Collaborated with the design team to implement responsive and accessible UI components using Next.js.",
+				"Integrated third-party APIs and services to enhance the platform's functionality, including appointment scheduling and payment processing.",
+				"Optimised the platform's performance by implementing lazy loading, code splitting, and caching strategies."
+			]
+		},
+		{
 			id: "emergent-1",
 			company: "Emergent Labs",
 			href: "https://app.emergent.sh/",
 			badges: [],
 			location: "Remote",
-			title: "Software Engineer",
+			title: "Frontend Engineer",
 			logoUrl: "/emergent.png",
 			start: "August 2025",
-			end: "Present",
+			end: "November 2025",
 			description: [
 				"Integrated Pusher for real-time web notifications, enabling instant updates for users on the platform.",
 				"Designed and optimised the landing page using lazy loading, code splitting, and WebP image optimisation.",
@@ -76,14 +93,14 @@ export const DATA = {
 			]
 		},
 		{
-			id: "juno-1",
+			id: "juno-2",
 			company: "Juno Finance",
 			href: "https://juno.finance",
 			badges: [],
 			location: "Bengaluru, India",
 			title: "Software Development Engineer",
 			logoUrl: "/juno.png",
-			start: "June 2021",
+			start: "Nov 2020",
 			end: "Feb 2024",
 			description: [
 				"Migrated from the Google Sign-In JS library to Google Identity, integrating Google One Tap for better UX.",
@@ -96,24 +113,27 @@ export const DATA = {
 				"Contributed to the development and enhancement of buy, sell, and send crypto flows across multiple iterations.",
 				"Implemented lazy hydrating techniques that resulted in a 40% reduction in the loading time.",
 				"Developed and implemented two-factor authentication to enhance user security.",
-			]
-		},
-		{
-			id: "juno-2",
-			company: "Juno Finance",
-			href: "https://juno.finance",
-			badges: [],
-			location: "Remote",
-			title: "Software Engineering Intern",
-			logoUrl: "/juno.png",
-			start: "Nov 2020",
-			end: "April 2021",
-			description: [
 				"Co-developed a customized CRM tool, increasing query resolution by 25% and response time by 20%.",
 				"Implemented features for card issuance and address updates, increasing user retention by 30%.",
 				"Managed MongoDB query development and optimization using Metabase for the growth and analytics team."
 			]
 		},
+		// {
+		// 	id: "juno-1",
+		// 	company: "Juno Finance",
+		// 	href: "https://juno.finance",
+		// 	badges: [],
+		// 	location: "Remote",
+		// 	title: "Software Engineering Intern",
+		// 	logoUrl: "/juno.png",
+		// 	start: "Nov 2020",
+		// 	end: "April 2021",
+		// 	description: [
+		// 		"Co-developed a customized CRM tool, increasing query resolution by 25% and response time by 20%.",
+		// 		"Implemented features for card issuance and address updates, increasing user retention by 30%.",
+		// 		"Managed MongoDB query development and optimization using Metabase for the growth and analytics team."
+		// 	]
+		// },
 		{
 			id: "moodcafe",
 			company: "Moodcafe",
