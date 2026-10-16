@@ -2,7 +2,8 @@ import type { Config } from "tailwindcss";
 import { fontFamily } from "tailwindcss/defaultTheme";
 
 const config = {
-  darkMode: ["class"],
+  // next-themes writes data-theme="dark" | "light" on <html>
+  darkMode: ["selector", '[data-theme="dark"]'],
   content: [
     "./pages/**/*.{ts,tsx}",
     "./components/**/*.{ts,tsx}",
@@ -20,41 +21,60 @@ const config = {
     },
     extend: {
       fontFamily: {
-        sans: ["var(--font-sans)", ...fontFamily.sans],
+        sans: ["var(--font-geist-sans)", ...fontFamily.sans],
+        mono: ["var(--font-geist-mono)", ...fontFamily.mono],
       },
       colors: {
-        border: "hsl(var(--border))",
-        input: "hsl(var(--input))",
-        ring: "hsl(var(--ring))",
-        background: "hsl(var(--background))",
-        foreground: "hsl(var(--foreground))",
+        // shadcn semantic names, mapped onto the theme tokens in globals.css
+        border: "var(--line)",
+        input: "var(--line2)",
+        ring: "var(--accent-ink)",
+        background: "var(--bg)",
+        foreground: "var(--fg)",
         primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
+          DEFAULT: "var(--fg)",
+          foreground: "var(--bg)",
         },
         secondary: {
-          DEFAULT: "hsl(var(--secondary))",
-          foreground: "hsl(var(--secondary-foreground))",
+          DEFAULT: "var(--slot)",
+          foreground: "var(--fg)",
         },
         destructive: {
-          DEFAULT: "hsl(var(--destructive))",
-          foreground: "hsl(var(--destructive-foreground))",
+          DEFAULT: "hsl(0 84.2% 60.2%)",
+          foreground: "hsl(0 0% 98%)",
         },
         muted: {
-          DEFAULT: "hsl(var(--muted))",
-          foreground: "hsl(var(--muted-foreground))",
+          DEFAULT: "var(--slot)",
+          foreground: "var(--muted)",
         },
         accent: {
-          DEFAULT: "hsl(var(--accent))",
-          foreground: "hsl(var(--accent-foreground))",
+          DEFAULT: "var(--slot)",
+          foreground: "var(--fg)",
         },
         popover: {
-          DEFAULT: "hsl(var(--popover))",
-          foreground: "hsl(var(--popover-foreground))",
+          DEFAULT: "var(--card)",
+          foreground: "var(--fg)",
         },
         card: {
-          DEFAULT: "hsl(var(--card))",
-          foreground: "hsl(var(--card-foreground))",
+          DEFAULT: "var(--card)",
+          foreground: "var(--fg)",
+        },
+        // tokens with no shadcn equivalent
+        line: {
+          DEFAULT: "var(--line)",
+          strong: "var(--line2)",
+        },
+        dim: "var(--dim)",
+        body: "var(--body)",
+        slot: "var(--slot)",
+        hdr: "var(--hdr)",
+        lime: {
+          DEFAULT: "#c8c800",
+          hover: "#e3e37a",
+          // text on a lime fill, same in both themes
+          foreground: "#1c1c1c",
+          // lime as text on the page: lime in dark, olive in light
+          ink: "var(--accent-ink)",
         },
       },
       borderRadius: {

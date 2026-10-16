@@ -1,253 +1,259 @@
-import { HackathonCard } from "@/components/hackathon-card";
-import { EmailCopyButton } from "@/components/EmailCopyButton";
-import BlurFade from "@/components/magicui/blur-fade";
-import BlurFadeText from "@/components/magicui/blur-fade-text";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
-import { Avatar, AvatarFallback, AvatarImage } from "@/components/ui/avatar";
-import { Badge } from "@/components/ui/badge";
+import { ScrollLink } from "@/components/scroll-link";
+import { Eyebrow, Section } from "@/components/section";
+import { getBlogPosts } from "@/data/blog";
 import { DATA } from "@/data/resume";
+import { cn, formatMonthYear, formatPeriod } from "@/lib/utils";
+import { MapPinIcon } from "lucide-react";
+import Image from "next/image";
 import Link from "next/link";
-import Markdown from "react-markdown";
 
-const BLUR_FADE_DELAY = 0.04;
+export default async function Page() {
+	const posts = (await getBlogPosts()).sort(
+		(a, b) =>
+			new Date(b.metadata.publishedAt).getTime() -
+			new Date(a.metadata.publishedAt).getTime()
+	);
+	const { travel } = DATA.about;
 
-export default function Page() {
 	return (
-		<main className="flex flex-col min-h-[100dvh] space-y-10">
+		<main className="mx-auto max-w-[1344px] px-6 pb-20 leading-[normal]">
 
-			<section id="hero">
-			<div className="mx-auto w-full max-w-2xl space-y-8">
-				<div className="gap-2 flex justify-between">
-				<div className="flex-col flex flex-1 space-y-1.5">
-					<BlurFadeText
-						delay={BLUR_FADE_DELAY}
-						className="text-3xl font-bold tracking-tighter sm:text-5xl xl:text-6xl/none"
-						yOffset={8}
-						text={`Hi, I'm ${DATA.name.split(" ")[0]} 👋`}
-					/>
-					<BlurFadeText
-					className="max-w-[600px] md:text-xl"
-					delay={BLUR_FADE_DELAY}
-					text={DATA.description}
-					/>
-				</div>
-				<BlurFade delay={BLUR_FADE_DELAY}>
-					<Avatar className="size-28 border">
-					<AvatarImage alt={DATA.name} src={DATA.avatarUrl} />
-					<AvatarFallback>{DATA.initials}</AvatarFallback>
-					</Avatar>
-				</BlurFade>
-				</div>
-			</div>
-			</section>
-
-			<section id="about">
-			<BlurFade delay={BLUR_FADE_DELAY * 3}>
-				<h2 className="text-xl font-bold">About</h2>
-			</BlurFade>
-			<BlurFade delay={BLUR_FADE_DELAY * 4}>
-				<Markdown className="prose max-w-full text-pretty font-sans text-sm text-muted-foreground dark:prose-invert">
-				{DATA.summary}
-				</Markdown>
-			</BlurFade>
-			</section>
-
-			<section id="work">
-				<div className="flex min-h-0 flex-col gap-y-3">
-					<BlurFade delay={BLUR_FADE_DELAY * 5}>
-						<h2 className="text-xl font-bold">Work Experience</h2>
-					</BlurFade>
-
-					{DATA.work.map((work, id) => (
-						<BlurFade
-							key={work.id}
-							delay={BLUR_FADE_DELAY * 6 + id * 0.05}
-						>
-							<ResumeCard
-								key={work.company}
-								logoUrl={work.logoUrl}
-								altText={work.company}
-								title={work.company}
-								subtitle={work.title}
-								location={work.location}
-								href={work.href}
-								badges={work.badges}
-								period={`${work.start} - ${work.end ?? "Present"}`}
-								description={work.description}
-							/>
-						</BlurFade>
-					))}
-				</div>
-			</section>
-
-			<section id="education">
-			<div className="flex min-h-0 flex-col gap-y-3">
-				<BlurFade delay={BLUR_FADE_DELAY * 7}>
-				<h2 className="text-xl font-bold">Education</h2>
-				</BlurFade>
-				{DATA.education.map((education, id) => (
-				<BlurFade
-					key={education.school}
-					delay={BLUR_FADE_DELAY * 8 + id * 0.05}
-				>
-					<ResumeCard
-						key={education.school}
-						href={education.href}
-						logoUrl={education.logoUrl}
-						altText={education.school}
-						title={education.school}
-						subtitle={education.degree}
-						location={education.location}
-						period={`${education.start} - ${education.end}`}
-					/>
-				</BlurFade>
-				))}
-			</div>
-			</section>
-
-			<section id="skills">
-				<div className="flex min-h-0 flex-col gap-y-3">
-					<BlurFade delay={BLUR_FADE_DELAY * 9}>
-					<h2 className="text-xl font-bold">Skills</h2>
-					</BlurFade>
-					<div className="flex flex-wrap gap-1">
-					{DATA.skills.map((skill, id) => (
-						<BlurFade key={skill} delay={BLUR_FADE_DELAY * 10 + id * 0.05}>
-						<Badge key={skill}>{skill}</Badge>
-						</BlurFade>
-					))}
-					</div>
-				</div>
-			</section>
-
-			{DATA && DATA.projects &&
-				<section id="projects">
-					<div
-						className="space-y-12 w-full py-12"
-					>
-						<BlurFade delay={BLUR_FADE_DELAY * 11}>
-						<div className="flex flex-col items-center justify-center space-y-4 text-center">
-							<div className="space-y-2">
-							<div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-								My Projects
-							</div>
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-								Check out my best work
-							</h2>
-							<p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-								Here’s a project I’ve worked on, with more coming soon!
-							</p>
-							</div>
+			<section className="px-2 pt-28">
+				<div className="grid gap-14 md:grid-cols-[minmax(0,1fr)_clamp(220px,30%,420px)]">
+					<div>
+						<div className="inline-flex items-center gap-2.5 rounded-full bg-lime px-3.5 py-2 font-mono text-[12px] font-medium uppercase tracking-[.14em] text-lime-foreground">
+							<MapPinIcon aria-hidden className="size-[13px]" strokeWidth={2.2} />
+							{DATA.location}
 						</div>
-						</BlurFade>
-						<div
-							// className="grid grid-cols-1 gap-3 sm:grid-cols-2 max-w-[800px] mx-auto"
-						>
-							{DATA.projects.map((project, id) => (
-								<BlurFade
-									key={project.title}
-									delay={BLUR_FADE_DELAY * 12 + id * 0.05}
-								>
-									<ProjectCard
-										href={project.href}
-										key={project.title}
-										title={project.title}
-										description={project.description}
-										dates={project.dates}
-										tags={project.technologies}
-										image={project.image}
-										video={project.video}
-										links={project.links}
-									/>
-								</BlurFade>
-							))}
-						</div>
-					</div>
-				</section>
-			}
-
-			{/* {DATA && DATA.hackathons &&
-				<section id="hackathons">
-					<div className="space-y-12 w-full py-12">
-						<BlurFade delay={BLUR_FADE_DELAY * 13}>
-						<div className="flex flex-col items-center justify-center space-y-4 text-center">
-							<div className="space-y-2">
-							<div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-								Hackathons
-							</div>
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-								I like building things
-							</h2>
-							<p className="text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-								During my time in university, I attended{" "}
-								{DATA.hackathons.length}+ hackathons. People from around the
-								country would come together and build incredible things in 2-3
-								days. It was eye-opening to see the endless possibilities
-								brought to life by a group of motivated and passionate
-								individuals.
-							</p>
-							</div>
-						</div>
-						</BlurFade>
-						<BlurFade delay={BLUR_FADE_DELAY * 14}>
-						<ul className="mb-4 ml-4 divide-y divide-dashed border-l">
-							{DATA.hackathons.map((project, id) => (
-							<BlurFade
-								key={project.title + project.dates}
-								delay={BLUR_FADE_DELAY * 15 + id * 0.05}
+						<h1 className="mt-9 text-balance text-[clamp(44px,6.6vw,120px)] font-bold uppercase leading-[.9] tracking-[-.05em]">
+							Frontend
+							<br />
+							by instinct<span className="text-lime-ink">.</span>
+						</h1>
+						<p className="mt-10 max-w-[620px] text-pretty text-[22px] leading-[1.45] text-body">
+							{DATA.hero.lead}
+						</p>
+						<div className="mt-10 flex flex-wrap gap-3">
+							<ScrollLink
+								href="/#work"
+								className="inline-flex items-center gap-2.5 rounded-lg bg-foreground px-[22px] py-3.5 text-[15px] font-semibold text-background transition-colors hover:bg-lime hover:text-lime-foreground"
 							>
-								<HackathonCard
-								title={project.title}
-								description={project.description}
-								location={project.location}
-								dates={project.dates}
-								image={project.image}
-								links={project.links}
-								/>
-							</BlurFade>
-							))}
-						</ul>
-						</BlurFade>
-					</div>
-				</section>
-			} */}
-
-			<section id="contact">
-				<div className="grid items-center justify-center gap-4 px-4 text-center md:px-6 w-full py-12">
-					<BlurFade delay={BLUR_FADE_DELAY * 16}>
-						<div className="space-y-3">
-							<div className="inline-block rounded-lg bg-foreground text-background px-3 py-1 text-sm">
-								Contact
-							</div>
-							<h2 className="text-3xl font-bold tracking-tighter sm:text-5xl">
-								Get in Touch
-							</h2>
-							<p className="mx-auto max-w-[600px] text-muted-foreground md:text-xl/relaxed lg:text-base/relaxed xl:text-xl/relaxed">
-								Have a question or want to connect? Reach out via{" "}
-
-								<EmailCopyButton email={DATA.contact.email} />{" "}
-								or DM me on{" "}
-								<Link
-									href={DATA.contact.social.X.url}
-									className="text-blue-500 hover:underline font-medium"
-									target="_blank"
-									rel="noopener noreferrer"
-								>
-									X (Twitter)
-								</Link>
-
-								and I shall respond when I can.
-
-								<br />
-
-								<span className="text-sm italic">
-									I prioritize meaningful conversations and may not respond to unsolicited messages.
-								</span>
-							</p>
+								See the work <span aria-hidden>↓</span>
+							</ScrollLink>
+							<ScrollLink
+								href="/#contact"
+								className="inline-flex items-center gap-2.5 rounded-lg border border-line-strong px-[22px] py-3.5 text-[15px] font-semibold text-foreground transition-colors hover:border-lime-ink"
+							>
+								Say hello <span aria-hidden className="text-[12px]">↗</span>
+							</ScrollLink>
 						</div>
-					</BlurFade>
+					</div>
+					<figure className="relative aspect-[4/5] max-h-[420px] overflow-hidden rounded-2xl border bg-slot md:aspect-auto md:max-h-none md:min-h-[420px]">
+						<Image
+							src={DATA.avatarUrl}
+							alt={DATA.name}
+							fill
+							priority
+							sizes="(min-width: 768px) 420px, 100vw"
+							className="object-cover"
+						/>
+					</figure>
 				</div>
+
+				<div className="pt-[72px]">
+					<div className="flex items-baseline justify-between font-mono text-[11px] tracking-[.12em] text-dim">
+						<span>THE PATH SO FAR</span>
+						<span>2017 → NOW</span>
+					</div>
+					<ol className="mt-7 grid grid-cols-[repeat(auto-fit,minmax(230px,1fr))] gap-y-6">
+						{DATA.path.map((step, i) => {
+							const current = i === DATA.path.length - 1;
+							return (
+								<li
+									key={step.name}
+									className={cn(
+										"flex flex-col gap-3.5 border-t pr-5",
+										current ? "border-lime" : "border-line-strong"
+									)}
+								>
+									<span
+										aria-hidden
+										className={cn(
+											"-ml-px -mt-1.5 size-[15px] rounded-full border-2 border-background",
+											current
+												? "bg-lime shadow-[0_0_0_1px_#c8c800]"
+												: "bg-background shadow-[0_0_0_1px_var(--dim)]"
+										)}
+									/>
+									<span className="font-mono text-[11px] tracking-[.08em] text-muted-foreground">
+										{step.when}
+									</span>
+									<span>
+										<span className="block whitespace-nowrap text-[16px] font-semibold tracking-[-.02em]">
+											{step.name}
+										</span>
+										<span className="mt-[3px] block text-[13px] text-muted-foreground">
+											{step.role}
+										</span>
+									</span>
+									<span className="font-mono text-[11px] text-dim">{step.place}</span>
+								</li>
+							);
+						})}
+					</ol>
+				</div>
+			</section>
+
+			<Section id="about" no="01" label="ABOUT">
+				<h2 className="text-balance text-[clamp(30px,3.6vw,46px)] font-medium leading-[1.15] tracking-[-.03em]">
+					{DATA.about.headline}
+				</h2>
+				<div className="mt-10 grid grid-cols-[repeat(auto-fit,minmax(min(260px,100%),1fr))] gap-10 text-[16px] leading-[1.7] text-body">
+					{DATA.about.paragraphs.map((paragraph) => (
+						<p key={paragraph} className="text-pretty">
+							{paragraph}
+						</p>
+					))}
+				</div>
+				<div className="mt-14 grid items-start gap-10 border-t pt-10 sm:grid-cols-[minmax(0,1fr)_auto]">
+					<div>
+						<div className="font-mono text-[11px] tracking-[.12em] text-muted-foreground">
+							WHEN I&apos;M NOT SHIPPING
+						</div>
+						<p className="mt-4 max-w-[640px] text-pretty text-[20px] font-medium leading-[1.5] tracking-[-.015em]">
+							{travel.pull}
+						</p>
+						<p className="mt-4 max-w-[640px] text-pretty text-[16px] leading-[1.7] text-body">
+							{travel.body}
+						</p>
+					</div>
+					<div className="flex flex-col gap-1.5 sm:items-end sm:pt-7 sm:text-right">
+						<span className="text-[64px] font-bold leading-none tracking-[-.05em]">
+							{travel.countries}
+						</span>
+						<span className="font-mono text-[11px] tracking-[.12em] text-muted-foreground">
+							COUNTRIES
+						</span>
+					</div>
+				</div>
+			</Section>
+
+			<Section id="experience" no="02" label="EXPERIENCE">
+				{DATA.work.map((job) => (
+					<ResumeCard
+						key={job.id}
+						title={job.company}
+						href={job.href}
+						subtitle={[job.title, job.type, job.location].filter(Boolean).join(" · ")}
+						period={formatPeriod(job.start, job.end)}
+						description={job.blurb}
+						stack={job.stack}
+					/>
+				))}
+				<div className="border-t" />
+			</Section>
+
+			<section id="work" className="scroll-mt-24 px-2 pt-28">
+				<div className="grid gap-6 md:grid-cols-[minmax(200px,3fr)_minmax(0,9fr)] md:items-end md:gap-12">
+					<Eyebrow no="03">SELECTED WORK</Eyebrow>
+					<h2 className="text-[clamp(30px,3.6vw,46px)] font-medium leading-[1.15] tracking-[-.03em]">
+						Two things worth opening.
+					</h2>
+				</div>
+				<div className="mt-12 grid grid-cols-[repeat(auto-fit,minmax(min(380px,100%),1fr))] gap-6">
+					{DATA.projects.map((project, i) => (
+						<ProjectCard
+							key={project.title}
+							no={String(i + 1).padStart(2, "0")}
+							title={project.title}
+							href={project.href}
+							year={project.year}
+							kind={project.kind}
+							status={project.status}
+							tagline={project.tagline}
+							description={project.description}
+							tags={project.technologies}
+							image={project.image}
+						/>
+					))}
+				</div>
+			</section>
+
+			<Section id="toolbox" no="04" label="TOOLBOX">
+				<div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-6 gap-y-8">
+					{DATA.toolbox.map(({ group, items }) => (
+						<div key={group} className="border-t pt-4">
+							<div className="font-mono text-[11px] tracking-[.12em] text-muted-foreground">
+								{group}
+							</div>
+							<ul className="mt-3.5 flex flex-wrap gap-2">
+								{items.map((item) => (
+									<li key={item} className="rounded-md border px-2.5 py-1.5 text-[13px]">
+										{item}
+									</li>
+								))}
+							</ul>
+						</div>
+					))}
+				</div>
+			</Section>
+
+			<Section id="writing" no="05" label="WRITING">
+				{posts.map((post) => (
+					<Link
+						key={post.slug}
+						href={`/blog/${post.slug}`}
+						className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-6 border-t py-[22px] text-foreground transition-colors hover:text-lime-ink"
+					>
+						<span>
+							<span className="block text-[22px] font-medium tracking-[-.02em]">
+								{post.metadata.title}
+							</span>
+							<span className="mt-1 block text-[14px] text-muted-foreground">
+								{post.metadata.summary}
+							</span>
+						</span>
+						<span className="whitespace-nowrap font-mono text-[12px] text-dim">
+							{formatMonthYear(post.metadata.publishedAt)}
+						</span>
+					</Link>
+				))}
+				<div className="border-t" />
+			</Section>
+
+			<section id="contact" className="scroll-mt-24 px-2 pt-36">
+				<Eyebrow no="06">CONTACT</Eyebrow>
+				<h2 className="mt-8 text-balance text-[clamp(48px,8vw,112px)] font-bold uppercase leading-[.92] tracking-[-.05em]">
+					Let&apos;s build
+					<br />
+					something<span className="text-lime-ink">.</span>
+				</h2>
+				<a
+					href={`mailto:${DATA.contact.email}`}
+					className="mt-12 inline-block border-b-2 border-lime pb-1.5 text-[clamp(20px,2.6vw,34px)] font-medium tracking-[-.02em] transition-colors hover:text-lime-ink"
+				>
+					{DATA.contact.email}
+				</a>
+				<footer className="mt-24 flex flex-wrap items-center justify-between gap-6 border-t pt-6 font-mono text-[12px] uppercase text-dim">
+					<span>
+						© {new Date().getFullYear()} {DATA.name} · {DATA.location}
+					</span>
+					<div className="flex gap-6">
+						{Object.values(DATA.contact.social).map((social) => (
+							<a
+								key={social.name}
+								href={social.url}
+								target="_blank"
+								rel="noopener noreferrer"
+								className="text-muted-foreground transition-colors hover:text-lime-ink"
+							>
+								{social.name} ↗
+							</a>
+						))}
+					</div>
+				</footer>
 			</section>
 		</main>
 	);

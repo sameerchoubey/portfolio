@@ -1,118 +1,67 @@
-import { Badge } from "@/components/ui/badge";
-import {
-  Card,
-  CardContent,
-  CardFooter,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { cn } from "@/lib/utils";
 import Image from "next/image";
-import Link from "next/link";
-import Markdown from "react-markdown";
 
 interface Props {
+  no: string;
   title: string;
-  href?: string;
+  href: string;
+  year: string;
+  kind: string;
+  status: string;
+  tagline: string;
   description: string;
-  dates: string;
   tags: readonly string[];
-  link?: string;
-  image?: string;
-  video?: string;
-  links?: readonly {
-    icon: React.ReactNode;
-    type: string;
-    href: string;
-  }[];
-  className?: string;
+  image: string;
 }
 
 export function ProjectCard({
+  no,
   title,
   href,
+  year,
+  kind,
+  status,
+  tagline,
   description,
-  dates,
   tags,
-  link,
   image,
-  video,
-  links,
-  className,
 }: Props) {
   return (
-    <Card
-      className={
-        "flex flex-col overflow-hidden border hover:shadow-lg transition-all duration-300 ease-out h-full"
-      }
+    <a
+      href={href}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="flex flex-col overflow-hidden rounded-2xl border bg-card text-foreground transition-colors duration-200 hover:border-lime-ink"
     >
-      <Link
-        href={href || "#"}
-        className={cn("block cursor-pointer", className)}
-        target="_blank"
-        rel="noopener noreferrer"
-      >
-        {video && (
-          <video
-            src={video}
-            autoPlay
-            loop
-            muted
-            playsInline
-            className="pointer-events-none mx-auto h-40 w-full object-cover object-top" // needed because random black line at bottom of video
-          />
-        )}
-        {image && (
-          <Image
-            src={image}
-            alt={title}
-            width={500}
-            height={300}
-            className="h-40 w-full overflow-hidden object-cover object-top"
-          />
-        )}
-      </Link>
-      <CardHeader className="px-2">
-        <div className="space-y-1">
-          <CardTitle className="mt-1 text-base">{title}</CardTitle>
-          <time className="font-sans text-xs">{dates}</time>
-          <div className="hidden font-sans text-xs underline print:visible">
-            {link?.replace("https://", "").replace("www.", "").replace("/", "")}
-          </div>
-          <Markdown className="prose max-w-full text-pretty font-sans text-xs text-muted-foreground dark:prose-invert">
-            {description}
-          </Markdown>
+      <div className="relative aspect-[16/10] border-b bg-slot">
+        <Image
+          src={image}
+          alt={`${title} screenshot`}
+          fill
+          sizes="(min-width: 1344px) 636px, (min-width: 860px) 50vw, 100vw"
+          className="object-cover object-top"
+        />
+      </div>
+      <div className="flex flex-1 flex-col p-7">
+        <div className="flex justify-between gap-4 font-mono text-[12px] text-muted-foreground">
+          <span>
+            <span className="text-lime-ink">{no}</span> / {year} · {kind}
+          </span>
+          <span className="text-lime-ink">{status}</span>
         </div>
-      </CardHeader>
-      <CardContent className="mt-auto flex flex-col px-2">
-        {tags && tags.length > 0 && (
-          <div className="mt-2 flex flex-wrap gap-1">
-            {tags?.map((tag) => (
-              <Badge
-                className="px-1 py-0 text-[10px]"
-                variant="secondary"
-                key={tag}
-              >
-                {tag}
-              </Badge>
-            ))}
+        <h3 className="mt-[18px] text-[30px] font-semibold tracking-[-.03em]">{title}</h3>
+        <div className="mt-1.5 text-[18px] text-body">{tagline}</div>
+        <p className="mt-3.5 text-pretty text-[15px] leading-[1.65] text-muted-foreground">
+          {description}
+        </p>
+        <div className="mt-auto pt-6">
+          <div className="flex items-center justify-between gap-4 border-t pt-5">
+            <span className="font-mono text-[11px] text-dim">{tags.join(" · ")}</span>
+            <span className="whitespace-nowrap text-[14px] font-semibold text-lime-ink">
+              Open →
+            </span>
           </div>
-        )}
-      </CardContent>
-      <CardFooter className="px-2 pb-2">
-        {links && links.length > 0 && (
-          <div className="flex flex-row flex-wrap items-start gap-1">
-            {links?.map((link, idx) => (
-              <Link href={link?.href} key={idx} target="_blank">
-                <Badge key={idx} className="flex gap-2 px-2 py-1 text-[10px]">
-                  {link.icon}
-                  {link.type}
-                </Badge>
-              </Link>
-            ))}
-          </div>
-        )}
-      </CardFooter>
-    </Card>
+        </div>
+      </div>
+    </a>
   );
 }

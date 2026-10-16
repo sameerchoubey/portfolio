@@ -3,77 +3,56 @@
 @tailwind utilities;
 
 @layer base {
-    :root {
-      --background: 0 0% 100%;
-      --foreground: 210 11.1% 3.53%;
+  /* Dark is the default theme; next-themes sets data-theme on <html>. */
+  :root,
+  [data-theme="dark"] {
+    --bg: #1c1c1c;
+    --fg: #f2efe8;
+    --line: #3a3a3a;
+    --line2: #4a4a4a;
+    --muted: #a89f94;
+    --dim: #6b6b6b;
+    --body: #d9d5cc;
+    --card: #242424;
+    --cardh: #222222;
+    --slot: #2d2d2d;
+    --hdr: rgba(28, 28, 28, 0.9);
+    --accent-ink: #c8c800;
 
-      --card: 0 0% 100%;
-      --card-foreground: 210 11.1% 3.53%;
-
-      --popover: 0 0% 100%;
-      --popover-foreground: 210 11.1% 3.53%;
-
-      --primary: 0 0% 9%;
-      --primary-foreground: 0 0% 98%;
-
-      --secondary: 0 0% 96.1%;
-      --secondary-foreground: 0 0% 9%;
-
-      --muted: 0 0% 96.1%;
-      --muted-foreground: 0 0% 45.1%;
-
-      --accent: 0 0% 96.1%;
-    --accent-foreground: 0 0% 9%;
-
-      --destructive: 0 84.2% 60.2%;
-      --destructive-foreground: 0 0% 98%;
-
-      --border: 0 0% 89.8%;
-      --input: 0 0% 89.8%;
-      --ring: 0 0% 3.9%;
-
-      --radius: 0.5rem;
-    }
-
-    .dark {
-      --background: 210 11.1% 3.53%;
-      --foreground: 0 0% 98%;
-
-      --card: 210 11.1% 3.53%;
-      --card-foreground: 0 0% 98%;
-
-      --popover: 210 11.1% 3.53%;
-      --popover-foreground: 0 0% 98%;
-
-      --primary: 0 0% 98%;
-      --primary-foreground: 0 0% 9%;
-
-      --secondary: 0 0% 14.9%;
-      --secondary-foreground: 0 0% 98%;
-
-      --muted: 0 0% 14.9%;
-      --muted-foreground: 0 0% 63.9%;
-
-      --accent: 0 0% 14.9%;
-      --accent-foreground: 0 0% 98%;
-
-      --destructive: 0 62.8% 30.6%;
-      --destructive-foreground: 0 0% 98%;
-
-      --border: 0 0% 14.9%;
-      --input: 0 0% 14.9%;
-      --ring: 0 0% 83.1%;
-    }
+    --radius: 0.5rem;
   }
 
-  @layer base {
-    * {
-      @apply border-border;
-    }
-    body {
-      @apply bg-background text-foreground;
-    }
+  [data-theme="light"] {
+    --bg: #f2efe8;
+    --fg: #1c1c1c;
+    --line: #d6d1c6;
+    --line2: #c4beb1;
+    --muted: #6b6b6b;
+    --dim: #8a8278;
+    --body: #3b3b3b;
+    --card: #faf8f3;
+    --cardh: #fdfcf9;
+    --slot: #e6e1d6;
+    --hdr: rgba(242, 239, 232, 0.9);
+    --accent-ink: #6b6b00;
   }
+
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground antialiased;
+    transition:
+      background-color 0.3s,
+      color 0.3s;
+  }
+
+  ::selection {
+    background: #c8c800;
+    color: #1c1c1c;
+  }
+}
 
   h3 code {
     @apply !text-lg md:!text-xl;
@@ -101,12 +80,10 @@
     background-color: var(--shiki-light-bg);
   }
    
-  @media (prefers-color-scheme: dark) {
-    code[data-theme*=" "],
-    code[data-theme*=" "] span {
-      color: var(--shiki-dark);
-      background-color: var(--shiki-dark-bg);
-    }
+  [data-theme="dark"] code[data-theme*=" "],
+  [data-theme="dark"] code[data-theme*=" "] span {
+    color: var(--shiki-dark);
+    background-color: var(--shiki-dark-bg);
   }
   
   code[data-line-numbers] {

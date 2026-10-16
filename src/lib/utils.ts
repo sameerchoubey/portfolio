@@ -35,3 +35,22 @@ export function formatDate(date: string) {
     return `${fullDate} (${yearsAgo}y ago)`;
   }
 }
+
+// "Nov 2025" + null -> "Nov 2025 — now"; "Aug 2025" + "Oct 2025" -> "Aug — Oct 2025"
+export function formatPeriod(start: string, end: string | null) {
+  if (!end) return `${start} — now`;
+  const [startMonth, startYear] = start.split(" ");
+  const [endMonth, endYear] = end.split(" ");
+  return startYear === endYear
+    ? `${startMonth} — ${endMonth} ${endYear}`
+    : `${start} — ${end}`;
+}
+
+// "2021-04-03" -> "Apr 2021"
+export function formatMonthYear(date: string) {
+  return new Date(date).toLocaleString("en-US", {
+    month: "short",
+    year: "numeric",
+    timeZone: "UTC",
+  });
+}
