@@ -60,7 +60,7 @@ export const DATA = {
 			start: "Oct 2025",
 			end: null,
 			blurb: "Platform team: a Vite + React 19 Module Federation platform serving 61 clinic deployments from one repo, 12+ product surfaces migrated into 44 federated modules, and a GitLab CI fanout that keeps 61 forks in sync.",
-			stack: ["React", "Vite", "GitLab CI"],
+			stack: ["TypeScript", "React", "Next"],
 			description: [
 				"Architected a Vite 6 + React 19 Module Federation platform serving 61 clinic deployments from one repo.",
 				"Migrated 12+ product surfaces from a monolith into 44 federated modules with registry-driven routing.",
@@ -80,7 +80,7 @@ export const DATA = {
 			start: "Aug 2025",
 			end: "Oct 2025",
 			blurb: "Real-time notifications with Pusher, Google One Tap auth over Supabase, and a landing page tuned for speed.",
-			stack: ["React", "Supabase"],
+			stack: ["TypeScript", "React"],
 			description: [
 				"Integrated Pusher for real-time web notifications, enabling instant updates for users on the platform.",
 				"Designed and optimised the landing page using lazy loading, code splitting, and WebP image optimisation.",
@@ -132,25 +132,25 @@ export const DATA = {
 		// 		"Managed MongoDB query development and optimization using Metabase for the growth and analytics team."
 		// 	]
 		// },
-		{
-			id: "moodcafe",
-			company: "Moodcafe",
-			href: null,
-			location: "Ahmedabad",
-			title: "Frontend Developer Intern",
-			type: null,
-			logoUrl: "/moodcafe.jpeg",
-			start: "Jan 2019",
-			end: "Feb 2019",
-			blurb: "Redesigned the site and built the landing page, self-help section, expert profiles and anonymous chat.",
-			stack: ["JavaScript"],
-			description: [
-				"Redesigned the Moodcare website to improve user experience and visual appeal",
-				"Developed and implemented key features for the landing page, self-help section, expert profiles, and anonymous chat functionality.",
-				"Collaborated with design and backend teams to deliver user-centric solutions aligned with Moodcare’s mission.",
-				"Optimized website performance for faster load times, cross-browser compatibility, and accessibility."
-			]
-		},
+		// {
+		// 	id: "moodcafe",
+		// 	company: "Moodcafe",
+		// 	href: null,
+		// 	location: "Ahmedabad",
+		// 	title: "Frontend Developer Intern",
+		// 	type: null,
+		// 	logoUrl: "/moodcafe.jpeg",
+		// 	start: "Jan 2019",
+		// 	end: "Feb 2019",
+		// 	blurb: "Redesigned the site and built the landing page, self-help section, expert profiles and anonymous chat.",
+		// 	stack: ["JavaScript"],
+		// 	description: [
+		// 		"Redesigned the Moodcare website to improve user experience and visual appeal",
+		// 		"Developed and implemented key features for the landing page, self-help section, expert profiles, and anonymous chat functionality.",
+		// 		"Collaborated with design and backend teams to deliver user-centric solutions aligned with Moodcare’s mission.",
+		// 		"Optimized website performance for faster load times, cross-browser compatibility, and accessibility."
+		// 	]
+		// },
 	],
 	projects: [
 		{
