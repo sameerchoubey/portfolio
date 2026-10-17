@@ -1,3 +1,4 @@
+import { CopyEmail } from "@/components/copy-email";
 import { PostList } from "@/components/post-list";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
@@ -232,12 +233,10 @@ export default async function Page() {
 					<br />
 					something<span className="text-lime-ink">.</span>
 				</h2>
-				<a
-					href={`mailto:${DATA.contact.email}`}
+				<CopyEmail
+					email={DATA.contact.email}
 					className="mt-12 inline-block border-b-2 border-lime pb-1.5 text-[clamp(20px,2.6vw,34px)] font-medium tracking-[-.02em] transition-colors hover:text-lime-ink"
-				>
-					{DATA.contact.email}
-				</a>
+				/>
 				<footer className="mt-24 flex flex-wrap items-center justify-between gap-6 border-t pt-6 font-mono text-[12px] uppercase text-dim">
 					<span>
 						© {new Date().getFullYear()} {DATA.name} · {DATA.location}
