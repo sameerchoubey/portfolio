@@ -2,6 +2,7 @@ import { getBlogPosts, getPost } from "@/data/blog";
 import { DATA } from "@/data/resume";
 import { formatDate } from "@/lib/utils";
 import type { Metadata } from "next";
+import Link from "next/link";
 import { notFound } from "next/navigation";
 import { Suspense } from "react";
 
@@ -9,6 +10,9 @@ export async function generateStaticParams() {
   const posts = await getBlogPosts();
   return posts.map((post) => ({ slug: post.slug }));
 }
+
+// Unknown slugs 404 instead of trying (and failing) to read a missing file.
+export const dynamicParams = false;
 
 export async function generateMetadata({
   params,
@@ -25,7 +29,9 @@ export async function generateMetadata({
     summary: description,
     image,
   } = post.metadata;
-  let ogImage = image ? `${DATA.url}${image}` : `${DATA.url}/og?title=${title}`;
+  // Without a frontmatter image, ./opengraph-image.tsx supplies the preview. Leave the
+  // images key out entirely in that case: even `images: undefined` overrides the file.
+  let images = image ? { images: [{ url: `${DATA.url}${image}` }] } : {};
 
   return {
     title,
@@ -36,17 +42,13 @@ export async function generateMetadata({
       type: "article",
       publishedTime,
       url: `${DATA.url}/blog/${post.slug}`,
-      images: [
-        {
-          url: ogImage,
-        },
-      ],
+      ...images,
     },
     twitter: {
       card: "summary_large_image",
       title,
       description,
-      images: [ogImage],
+      ...images,
     },
   };
 }
@@ -79,7 +81,7 @@ export default async function Blog({
             description: post.metadata.summary,
             image: post.metadata.image
               ? `${DATA.url}${post.metadata.image}`
-              : `${DATA.url}/og?title=${post.metadata.title}`,
+              : `${DATA.url}/blog/${post.slug}/opengraph-image`,
             url: `${DATA.url}/blog/${post.slug}`,
             author: {
               "@type": "Person",
@@ -88,18 +90,24 @@ export default async function Blog({
           }),
         }}
       />
-      <h1 className="title font-medium text-2xl tracking-tighter max-w-[650px]">
+      <Link
+        href="/blog"
+        className="font-mono text-[12px] tracking-[.12em] text-muted-foreground transition-colors hover:text-lime-ink"
+      >
+        ← ALL WRITING
+      </Link>
+      <h1 className="mt-8 max-w-[650px] text-balance text-[clamp(32px,5vw,44px)] font-semibold leading-[1.1] tracking-[-.03em]">
         {post.metadata.title}
       </h1>
-      <div className="flex justify-between items-center mt-2 mb-8 text-sm max-w-[650px]">
+      <div className="mb-10 mt-4 max-w-[650px]">
         <Suspense fallback={<p className="h-5" />}>
-          <p className="text-sm text-neutral-600 dark:text-neutral-400">
+          <p className="font-mono text-[12px] uppercase tracking-[.08em] text-dim">
             {formatDate(post.metadata.publishedAt)}
           </p>
         </Suspense>
       </div>
       <article
-        className="prose dark:prose-invert"
+        className="prose"
         dangerouslySetInnerHTML={{ __html: post.source }}
       ></article>
     </section>

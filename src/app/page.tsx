@@ -1,20 +1,18 @@
+import { PostList } from "@/components/post-list";
 import { ProjectCard } from "@/components/project-card";
 import { ResumeCard } from "@/components/resume-card";
 import { ScrollLink } from "@/components/scroll-link";
 import { Eyebrow, Section } from "@/components/section";
 import { getBlogPosts } from "@/data/blog";
 import { DATA } from "@/data/resume";
-import { cn, formatMonthYear, formatPeriod } from "@/lib/utils";
+import { getSections } from "@/lib/sections";
+import { cn, formatPeriod } from "@/lib/utils";
 import { MapPinIcon } from "lucide-react";
 import Image from "next/image";
-import Link from "next/link";
 
 export default async function Page() {
-	const posts = (await getBlogPosts()).sort(
-		(a, b) =>
-			new Date(b.metadata.publishedAt).getTime() -
-			new Date(a.metadata.publishedAt).getTime()
-	);
+	const [posts, sections] = await Promise.all([getBlogPosts(), getSections()]);
+	const section = Object.fromEntries(sections.map((s) => [s.id, s]));
 	const { travel } = DATA.about;
 
 	return (
@@ -106,7 +104,7 @@ export default async function Page() {
 				</div>
 			</section>
 
-			<Section id="about" no="01" label="ABOUT">
+			<Section id="about" no={section.about.no} label={section.about.eyebrow}>
 				<h2 className="text-balance text-[clamp(30px,3.6vw,46px)] font-medium leading-[1.15] tracking-[-.03em]">
 					{DATA.about.headline}
 				</h2>
@@ -125,8 +123,23 @@ export default async function Page() {
 						<p className="mt-4 max-w-[640px] text-pretty text-[20px] font-medium leading-[1.5] tracking-[-.015em]">
 							{travel.pull}
 						</p>
-						<p className="mt-4 max-w-[640px] text-pretty text-[16px] leading-[1.7] text-body">
-							{travel.body}
+						<ul className="mt-6 max-w-[640px]">
+							{travel.moments.map((moment) => (
+								<li
+									key={moment.place}
+									className="grid grid-cols-[88px_minmax(0,1fr)] items-baseline gap-4 border-t py-3"
+								>
+									<span className="font-mono text-[11px] tracking-[.08em] text-muted-foreground">
+										{moment.place}
+									</span>
+									<span className="text-pretty text-[16px] leading-[1.6] text-body">
+										{moment.text}
+									</span>
+								</li>
+							))}
+						</ul>
+						<p className="mt-6 max-w-[640px] text-pretty text-[16px] leading-[1.7] text-body">
+							{travel.closing}
 						</p>
 					</div>
 					<div className="flex flex-col gap-1.5 sm:items-end sm:pt-7 sm:text-right">
@@ -136,11 +149,17 @@ export default async function Page() {
 						<span className="font-mono text-[11px] tracking-[.12em] text-muted-foreground">
 							COUNTRIES
 						</span>
+						{/* One dot per country */}
+						<span aria-hidden className="mt-4 grid w-fit grid-cols-8 gap-1.5">
+							{Array.from({ length: travel.countries }, (_, i) => (
+								<span key={i} className="size-1.5 rounded-full bg-lime-ink" />
+							))}
+						</span>
 					</div>
 				</div>
 			</Section>
 
-			<Section id="experience" no="02" label="EXPERIENCE">
+			<Section id="experience" no={section.experience.no} label={section.experience.eyebrow}>
 				{DATA.work.map((job) => (
 					<ResumeCard
 						key={job.id}
@@ -157,7 +176,7 @@ export default async function Page() {
 
 			<section id="work" className="scroll-mt-24 px-2 pt-28">
 				<div className="grid gap-6 md:grid-cols-[minmax(200px,3fr)_minmax(0,9fr)] md:items-end md:gap-12">
-					<Eyebrow no="03">SELECTED WORK</Eyebrow>
+					<Eyebrow no={section.work.no}>{section.work.eyebrow}</Eyebrow>
 					<h2 className="text-[clamp(30px,3.6vw,46px)] font-medium leading-[1.15] tracking-[-.03em]">
 						Two things worth opening.
 					</h2>
@@ -181,7 +200,7 @@ export default async function Page() {
 				</div>
 			</section>
 
-			<Section id="toolbox" no="04" label="TOOLBOX">
+			<Section id="toolbox" no={section.toolbox.no} label={section.toolbox.eyebrow}>
 				<div className="grid grid-cols-[repeat(auto-fit,minmax(200px,1fr))] gap-x-6 gap-y-8">
 					{DATA.toolbox.map(({ group, items }) => (
 						<div key={group} className="border-t pt-4">
@@ -200,31 +219,14 @@ export default async function Page() {
 				</div>
 			</Section>
 
-			<Section id="writing" no="05" label="WRITING">
-				{posts.map((post) => (
-					<Link
-						key={post.slug}
-						href={`/blog/${post.slug}`}
-						className="grid grid-cols-[minmax(0,1fr)_auto] items-baseline gap-6 border-t py-[22px] text-foreground transition-colors hover:text-lime-ink"
-					>
-						<span>
-							<span className="block text-[22px] font-medium tracking-[-.02em]">
-								{post.metadata.title}
-							</span>
-							<span className="mt-1 block text-[14px] text-muted-foreground">
-								{post.metadata.summary}
-							</span>
-						</span>
-						<span className="whitespace-nowrap font-mono text-[12px] text-dim">
-							{formatMonthYear(post.metadata.publishedAt)}
-						</span>
-					</Link>
-				))}
-				<div className="border-t" />
-			</Section>
+			{section.writing && (
+				<Section id="writing" no={section.writing.no} label={section.writing.eyebrow}>
+					<PostList posts={posts} />
+				</Section>
+			)}
 
 			<section id="contact" className="scroll-mt-24 px-2 pt-36">
-				<Eyebrow no="06">CONTACT</Eyebrow>
+				<Eyebrow no={section.contact.no}>{section.contact.eyebrow}</Eyebrow>
 				<h2 className="mt-8 text-balance text-[clamp(48px,8vw,112px)] font-bold uppercase leading-[.92] tracking-[-.05em]">
 					Let&apos;s build
 					<br />

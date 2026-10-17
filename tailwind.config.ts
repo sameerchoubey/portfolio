@@ -82,6 +82,29 @@ const config = {
         md: "calc(var(--radius) - 2px)",
         sm: "calc(var(--radius) - 4px)",
       },
+      // Blog post prose follows the theme tokens, so no prose-invert is needed.
+      typography: {
+        DEFAULT: {
+          css: {
+            "--tw-prose-body": "var(--body)",
+            "--tw-prose-headings": "var(--fg)",
+            "--tw-prose-lead": "var(--body)",
+            "--tw-prose-links": "var(--accent-ink)",
+            "--tw-prose-bold": "var(--fg)",
+            "--tw-prose-counters": "var(--muted)",
+            "--tw-prose-bullets": "var(--line2)",
+            "--tw-prose-hr": "var(--line)",
+            "--tw-prose-quotes": "var(--fg)",
+            "--tw-prose-quote-borders": "var(--line2)",
+            "--tw-prose-captions": "var(--muted)",
+            "--tw-prose-code": "var(--fg)",
+            "--tw-prose-pre-code": "var(--fg)",
+            "--tw-prose-pre-bg": "var(--card)",
+            "--tw-prose-th-borders": "var(--line2)",
+            "--tw-prose-td-borders": "var(--line)",
+          },
+        },
+      },
       keyframes: {
         "accordion-down": {
           from: { height: "0" },
