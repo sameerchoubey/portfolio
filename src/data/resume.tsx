@@ -20,7 +20,7 @@ export const DATA = {
 			pull: "I've been chasing new cities for as long as I've been writing code. Living in Berlin put half of Europe a train ride away.",
 			moments: [
 				{ place: "PARIS, FR", text: "A croissant still warm from the bakery." },
-				{ place: "MILAN, IT", text: "A slice eaten standing up." },
+				{ place: "BERLIN, DE", text: "A late-night döner on the walk home." },
 				{ place: "ROME, IT", text: "An afternoon inside the Colosseum, wondering how it's still standing." },
 			],
 			closing: "I travel the way I build: curious first, with a plan that's allowed to change.",
