@@ -1,6 +1,7 @@
 import Navbar from "@/components/navbar";
 import { ThemeProvider } from "@/components/theme-provider";
 import { DATA } from "@/data/resume";
+import { getSections } from "@/lib/sections";
 import { cn } from "@/lib/utils";
 import { GeistMono } from "geist/font/mono";
 import { GeistSans } from "geist/font/sans";
@@ -37,17 +38,15 @@ export const metadata: Metadata = {
     title: `${DATA.name}`,
     card: "summary_large_image",
   },
-  verification: {
-    google: "",
-    yandex: "",
-  },
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const sections = await getSections();
+
   return (
     <html lang="en" suppressHydrationWarning>
       <body
@@ -63,7 +62,7 @@ export default function RootLayout({
           enableSystem={false}
           storageKey="sc-theme"
         >
-          <Navbar />
+          <Navbar sections={sections} resumeUrl={DATA.resumeUrl} />
           {children}
         </ThemeProvider>
       </body>

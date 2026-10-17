@@ -4,7 +4,7 @@ export const DATA = {
 	url: "https://choubey.eu",
 	location: "Bengaluru, India",
 	locationLink: "https://www.google.com/maps/place/bengaluru",
-	description: "I love building cool and experimental things.",
+	description: "Sameer Choubey is a frontend-focused full stack engineer in Bengaluru, currently a Senior Frontend Engineer at Confido Health.",
 	avatarUrl: "/portrait.png",
 	resumeUrl: "/resume.pdf",
 	hero: {
@@ -13,12 +13,17 @@ export const DATA = {
 	about: {
 		headline: "I'm Sameer Choubey, a frontend-focused full stack engineer. I care about the interface first, and I'll own whatever sits behind it.",
 		paragraphs: [
-			"Currently at Confido Health, building the frontend of a healthcare platform. Before that, Emergent Labs, three-plus years at Juno Finance, and a master's in Software Engineering in Berlin that took me from Bengaluru to Germany and back.",
+			"Currently a Senior Frontend Engineer at Confido Health, on the platform team behind 61 clinic deployments. Before that, Emergent Labs, three-plus years at Juno Finance, and a master's in Software Engineering in Berlin that took me from Bengaluru to Germany and back.",
 			"Off the clock I ship small products of my own: Vaulzo, a net-worth tracker, and Schreibe, a writing tool. Experiments that turned into things people open every day.",
 		],
 		travel: {
-			pull: "I've been chasing new cities for as long as I've been writing code. Berlin just put a train station at my doorstep.",
-			body: "A croissant still warm from a Paris bakery, a slice eaten standing up in Milan, an afternoon inside the Colosseum in Rome wondering how it's still standing. I travel the way I build: curious first, with a plan that's allowed to change.",
+			pull: "I've been chasing new cities for as long as I've been writing code. Living in Berlin put half of Europe a train ride away.",
+			moments: [
+				{ place: "PARIS, FR", text: "A croissant still warm from the bakery." },
+				{ place: "BERLIN, DE", text: "A late-night döner on the walk home." },
+				{ place: "ROME, IT", text: "An afternoon inside the Colosseum, wondering how it's still standing." },
+			],
+			closing: "I travel the way I build: curious first, with a plan that's allowed to change.",
 			countries: 32,
 		},
 	},
@@ -32,7 +37,6 @@ export const DATA = {
 	],
 	contact: {
 		email: "sameer@choubey.eu",
-		tel: "+4915140138685",
 		social: {
 			GitHub: {
 				name: "GitHub",
@@ -159,8 +163,8 @@ export const DATA = {
 			year: "2025",
 			kind: "Product",
 			status: "LIVE",
-			tagline: "Your net worth, one snapshot at a time.",
-			description: "A simple wealth tracker that captures periodic snapshots and shows how they change over time with clear graphs.",
+			tagline: "All your accounts, one net worth.",
+			description: "A net-worth tracker that pulls your accounts into one place, replaces the manual spreadsheet, and shows how your wealth moves in real time.",
 			technologies: ["Next.js", "MongoDB", "Python", "Tailwind"],
 			image: "/vaulzo.png",
 		},
