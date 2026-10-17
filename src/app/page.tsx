@@ -49,13 +49,13 @@ export default async function Page() {
 							</ScrollLink>
 						</div>
 					</div>
-					<figure className="relative aspect-[4/5] max-h-[420px] overflow-hidden rounded-2xl border bg-slot md:aspect-auto md:max-h-none md:min-h-[420px]">
+					<figure className="relative aspect-[3/4] w-full max-w-[420px] self-start overflow-hidden rounded-2xl border bg-slot">
 						<Image
 							src={DATA.avatarUrl}
 							alt={DATA.name}
 							fill
 							priority
-							sizes="(min-width: 768px) 420px, 100vw"
+							sizes="420px"
 							className="object-cover"
 						/>
 					</figure>
