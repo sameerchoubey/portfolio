@@ -11,7 +11,8 @@
     --line: #3a3a3a;
     --line2: #4a4a4a;
     --muted: #a89f94;
-    --dim: #6b6b6b;
+    /* #6b6b6b in the handoff; lightened to clear 4.5:1 on --bg and --card */
+    --dim: #8b8b8b;
     --body: #d9d5cc;
     --card: #242424;
     --cardh: #222222;
@@ -27,8 +28,10 @@
     --fg: #1c1c1c;
     --line: #d6d1c6;
     --line2: #c4beb1;
-    --muted: #6b6b6b;
-    --dim: #8a8278;
+    /* #6b6b6b / #8a8278 in the handoff; darkened so --dim clears 4.5:1
+       while staying a step lighter than --muted */
+    --muted: #5c5c5c;
+    --dim: #736c64;
     --body: #3b3b3b;
     --card: #faf8f3;
     --cardh: #fdfcf9;
