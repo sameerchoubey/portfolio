@@ -11,7 +11,7 @@ const TOAST_MS = 2400;
 export function CopyEmail({ email, className }: { email: string; className?: string }) {
   const [toastId, setToastId] = useState(0);
   const [open, setOpen] = useState(false);
-  const hideTimer = useRef<number>();
+  const hideTimer = useRef<number | undefined>(undefined);
 
   useEffect(() => () => window.clearTimeout(hideTimer.current), []);
 

@@ -7,7 +7,7 @@ export const alt = `Writing by ${DATA.name}`;
 export const size = ogSize;
 export const contentType = "image/png";
 
-// Next 14 renders this route on demand (it can't prerender image routes under [slug]),
+// Next renders this route on demand (it doesn't prerender image routes under [slug]),
 // so next.config.mjs ships the fonts and posts it reads.
 export default async function Image({ params }: { params: { slug: string } }) {
   // Look the slug up instead of building a file path from it: unknown or crafted slugs 404.
